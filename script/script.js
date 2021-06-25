@@ -280,22 +280,24 @@ window.addEventListener('DOMContentLoaded', function () {
     function formValidation() {
         const calculator = document.querySelector('.calc-block');
         const footerFormInput = document.querySelector('.footer-form-input');
-	const mainForm = document.querySelector('.main-form');
+        const mainForm = document.querySelector('.main-form');
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'text') {
-                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-z]+)$/i, '')
+                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-z]+)$/i, '');
             }
         });
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'email') {
+                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9а-яА-я]+)$/i, '');
                 event.target.value = event.target.value.replace(/(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+@(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+[\\.]{1}[а-я]{2,4}/, '')
             }
         });
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'tel') {
+                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-zа-яА-яA-Z]+)$/i, '');
                 event.target.value = event.target.value.replace(!/^(\s*)?(\+)?([- ()]?\d[- ()]?){10,14}(\s*)?$/, '');
             }
         });
@@ -321,20 +323,21 @@ window.addEventListener('DOMContentLoaded', function () {
 
         footerFormInput.addEventListener('input', (event) => {
             if (event.target.type === 'tel') {
+                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-zа-яА-яA-Z]+)$/i, '');
                 event.target.value = event.target.value.replace(!/^(\s*)?(\+)?([- ()]?\d[- ()]?){10,14}(\s*)?$/, '');
             }
         });
 
         function bringingToTheRequiredForm() {
             const form1Name = document.getElementById('form1-name');
-            const form1Email = document.getElementById('form1-email');
+            // const form1Email = document.getElementById('form1-email');
             const form1Phone = document.getElementById('form1-phone');
             const form2Name = document.getElementById('form2-name');
-            const form2Email = document.getElementById('form2-email');
+            // const form2Email = document.getElementById('form2-email');
             const form2Phone = document.getElementById('form2-phone');
             const form2Message = document.getElementById('form2-message');
 
-            let arrForm = [form2Name, form2Email, form2Phone, form2Message, form1Name, form1Email, form1Phone];
+            let arrForm = [form2Name, form2Phone, form2Message, form1Name, form1Phone];
             arrForm.forEach((item) => {
                 item.addEventListener('blur', (event) => {
                     if (event.target.type === 'text') {
@@ -350,6 +353,8 @@ window.addEventListener('DOMContentLoaded', function () {
                     event.target.value = event.target.value.replace(/\s+/g, ' ');
                 });
             });
+        }
+        bringingToTheRequiredForm();
 
     }
     formValidation();
