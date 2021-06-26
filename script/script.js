@@ -285,53 +285,37 @@ window.addEventListener('DOMContentLoaded', function () {
 
         userForm.addEventListener('input', (event) => {
             if (event.target.type === 'text') {
-                event.target.value = event.target.value.replace(/^([!`~"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-z]+)$/g, '');
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|$|%|^|&|<|>|\/|\\|~|`|/gi, '');
+                event.target.value = event.target.value.replace(/[^а-яА-Я\s+\- ]/ig, '');
             }
         });
 
         userForm.addEventListener('input', (event) => {
             if (event.target.type === 'email') {
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9а-яА-я]+)$/i, '');
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|$|%|^|&|<|>|\/|\\|~|`|/gi, '');
-                event.target.value = event.target.value.replace(/(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+@(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+[\\.]{1}[а-я]{2,4}/, '')
+                event.target.value = event.target.value.replace(/[^[a-zA-Z+^@-_'~*!]/ig, '');
             }
         });
 
         userForm.addEventListener('input', (event) => {
             if (event.target.type === 'tel') {
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/^([!"№;%:~`?*()@#$^&/-/+/=/_/+/|/0-9a-zа-яёЁА-яA-Z]+)$/i, '');
-                event.target.value = event.target.value.replace(!/^(\s*)?(\+)?([- ()]?\d[- ()]?){10,14}(\s*)?$/, '');
+                event.target.value = event.target.value.replace(/[^[0-9()-]/ig, '');
             }
         });
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'text') {
-                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-zёЁ]+)$/i, '');
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|$|%|^|&|<|>|\/|\\|~|`|/gi, '');
+                event.target.value = event.target.value.replace(/[^а-яА-Я\- ]/ig, '');
             }
         });
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'email') {
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9а-яёЁА-я]+)$/i, '');
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|$|%|^|&|<|>|\/|\\|~|`|/gi, '');
-                event.target.value = event.target.value.replace(/(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+@(["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-я]{1,})+[\\.]{1}[а-я]{2,4}/, '')
+                event.target.value = event.target.value.replace(/[^[a-zA-Z+^@-_'~*!]/ig, '');
             }
         });
 
         mainForm.addEventListener('input', (event) => {
             if (event.target.type === 'tel') {
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/^([!"№`~;%:?*()@#$^&/-/+/=/_/+/|/0-9a-zёЁа-яА-яA-Z]+)$/i, '');
-                event.target.value = event.target.value.replace(!/^(\s*)?(\+)?([- ()]?\d[- ()]?){10,14}(\s*)?$/, '');
+                event.target.value = event.target.value.replace(/[^[0-9()-]/ig, '');
             }
         });
 
@@ -344,26 +328,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
         footerFormInput.addEventListener('input', (event) => {
             if (event.target.type === 'text' || event.target.classList === 'mess') {
-                event.target.value = event.target.value.replace(/^([!"№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-z]+)$/i, '');
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|$|%|^|&|<|>|\/|\\|~|`|/gi, '');
+                event.target.value = event.target.value.replace(/[^а-яА-Я\s+\- ]/ig, '');
             }
         });
 
         footerFormInput.addEventListener('input', (event) => {
             if (event.target.type === 'email') {
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/!|"|№|;|%|:|\?|\*|\(|\)|_|=|\+|@|#|\$|%|\^|&|<|>|\/|\\|~|`|/gi, '');
-                event.target.value = event.target.value.replace(/(["№;%:?*()#$^&/+/=/+/|А-Яа-яёЁ]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-яёЁ]{1,})+@(["№;%:?*()#$^&/+/=/+/|А-Яа-яёЁ]{1,}[\\.-]{0,1}["№;%:?*()#$^&/+/=/+/|А-Яа-яёЁ]{1,})+[\\.]{1}[а-я]{2,4}/, '')
+                event.target.value = event.target.value.replace(/[^[a-zA-Z+^@-_'~*!]/ig, '');
             }
         });
 
         footerFormInput.addEventListener('input', (event) => {
             if (event.target.type === 'tel') {
-                event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                event.target.value = event.target.value.replace(/а|б|в|г|д|е|ё|ж|з|и|ё|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я/gi, '')
-                event.target.value = event.target.value.replace(/^([!"`~№;%:?*()@#$^&/-/+/=/_/+/|/0-9a-zа-яА-яA-ZёЁ]+)$/i, '');
-                event.target.value = event.target.value.replace(!/^(\s*)?(\+)?([- ()]?\d[- ()]?){10,14}(\s*)?$/, '');
+                event.target.value = event.target.value.replace(/[^[0-9()-]/ig, '');
             }
         });
 
@@ -395,9 +372,6 @@ window.addEventListener('DOMContentLoaded', function () {
                     event.target.value = event.target.value.trim();
                     event.target.value = event.target.value.replace(/\s+/g, ' ');
                     event.target.value = event.target.value.replace(/-+/g, "-");
-                    if (event.target.type === 'text') {
-                        event.target.value = event.target.value.replace(/q|w|e|r|t|y|u|i|o|p|a|s|d|f|g|h|j|k|l|z|x|c|v|b|n|m|/gi, '');
-                    }
                 });
             });
         }
